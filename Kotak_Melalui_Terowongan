@@ -1,0 +1,41 @@
+
+#include <stdio.h>
+
+/* membuat struct kotak*/
+int n;
+typedef struct ktk{
+    int length, width, height, volume;
+}ktk;
+
+int main()
+{
+    int i;
+    
+	/*menentukan besar array*/
+    printf("Masukkan jumlah kotak: \n");
+    scanf("%d", &n);
+    ktk array_kotak[n];
+    
+	/*input dimensi kotak*/
+    for(i=0; i<n; i++){
+        printf("Kotak ke-%d: Masukkan length, width, height \n", i+1);
+        scanf("%d", &array_kotak[i].length);
+        scanf("%d", &array_kotak[i].width);
+        scanf("%d", &array_kotak[i].height);
+        
+        array_kotak[i].volume=array_kotak[i].length*array_kotak[i].width*array_kotak[i].height;
+    }
+    
+	/*output volume kotak*/
+    printf("\n\r");
+    printf("Output: volume kotak yang cukup untuk melewati terowongan: \n");
+    
+	/*hanya kotak yang tingginya kurang dari tinggi terowongan(41) yang bisa lewat dan ditampilkan*/
+    for(i=0; i<n; i++){
+        if(array_kotak[i].height<41){
+            printf("%d\n", array_kotak[i].volume);
+        }
+    }
+
+return 0;    
+}
