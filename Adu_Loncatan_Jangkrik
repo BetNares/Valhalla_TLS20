@@ -1,0 +1,42 @@
+
+#include <stdio.h>
+
+int main()
+{
+int i, V1, V2, X1, X2;
+i=0;
+
+	/*input posisi awal jangkrik(X1, X2) dan jarak lompatan (V1, V2)*/  
+    printf("input X1 V1 X2 V2 :");
+    scanf("%d %d %d %d", &X1,&V1,&X2,&V2);
+    
+/*if input ada dalam batasan yang benar*/
+if(X1>=0 && X2>=0 && X1<X2 && X1<=1000 && X2<=1000 && V1<=1000 && V2<=1000){
+
+	/*mulai loop lompat*/
+    do{
+        X1=X1+V1;
+        X2=X2+V2;
+        printf("%d %d\n",X1,X2); /*ini boleh dihapus karena gak disuruh*/
+        
+    }
+    while(X1<=1000 && X2<=1000 && X1!=X2);  /*saat ketemu posisi sama, loop akan berhenti*/
+
+	/*output tulisan YES atau NO*/
+	/*saat jangrik bertemu, output YES*/
+	/*saat tidak pernah bertemu, output NO*/
+    if(X1==X2){
+        printf("YES");
+    }
+    else{
+        printf("NO");
+    }
+}
+
+/*if input diluar batasan*/
+else{
+    printf("input error\n");
+}
+return 0;
+}
+
